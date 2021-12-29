@@ -180,3 +180,27 @@
 // console.log(addVAT2(100));
 // const addTax3 = rate => value => console.log(value + value * rate);
 // addTax3(0.23)(100);
+
+// IIFE Functions = Immediately Invoked Function Expressions
+
+//IIFE
+// (function () {
+//   console.log('This will never run again');
+// })();
+
+//IIFE Arrow
+// (() => console.log('This will never run again'))();
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
