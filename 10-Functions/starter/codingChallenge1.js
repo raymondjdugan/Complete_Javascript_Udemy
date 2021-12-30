@@ -22,41 +22,41 @@
 // 4. Run the 'displayResults' method at the end of each
 // 'registerNewAnswer' method call.
 
-// const poll = {
-//   question: 'What is your favourite programming language?',
-//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-//   // This generates [0, 0, 0, 0]. More in the next section!
-//   answers: new Array(4).fill(0),
-//   registerNewAnswer() {
-//     let correctInput = false;
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    let correctInput = false;
 
-//     while (correctInput === false) {
-//       const answer = Number(
-//         prompt(
-//           `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-//         )
-//       );
+    while (correctInput === false) {
+      const answer = Number(
+        prompt(
+          `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+        )
+      );
 
-//       if (!isNaN(answer) && answer < this.answers.length) {
-//         correctInput = true;
-//         this.answers[answer]++;
-//       }
-//     }
-//     this.displayResults();
-//   },
+      if (!isNaN(answer) && answer < this.answers.length) {
+        correctInput = true;
+        this.answers[answer]++;
+      }
+    }
+    this.displayResults();
+  },
 
-//   displayResults(type = 'array') {
-//     if (type === 'array') {
-//       console.log(this.answers);
-//     } else if (type === 'string') {
-//       console.log(`Poll results are: ${this.answers.join(', ')}`);
-//     }
-//   },
-// };
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are: ${this.answers.join(', ')}`);
+    }
+  },
+};
 
-// document
-//   .querySelector('.poll')
-//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
 // 5. Bonus: Use the 'displayResults' method to display the 2 arrays in the test
 // data. Use both the 'array' and the 'string' option. Do not put the arrays in the poll object! So what should the this keyword look like in this situation?
