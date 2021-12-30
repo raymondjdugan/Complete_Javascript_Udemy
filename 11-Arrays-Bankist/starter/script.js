@@ -81,6 +81,17 @@ const displayMovments = function (movements) {
 };
 displayMovments(account1.movements);
 
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name.at(0))
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -129,3 +140,11 @@ displayMovments(account1.movements);
 // currencies.forEach(function (value, key, map) {
 //   console.log(`${key}: ${value}`);
 // });
+
+//Map - can be used to loop an array
+//This will create a brand new array based on the original array
+//For each iteration it will apply a callback function
+
+//Filter - filters the original array from a certian condition
+
+//Reduce - reduces the array to a single value
