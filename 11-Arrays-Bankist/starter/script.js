@@ -79,7 +79,31 @@ const displayMovments = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovments(account1.movements);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+
+const calcDisplaySummary = function (acc) {
+  //Calculating the deposits
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+  //Calculating the withdrawals
+  const withdrawals = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + Math.abs(mov), 0);
+  labelSumOut.textContent = `${withdrawals}€`;
+  //Calculating interest
+  const interest = acc.movements
+    .filter(deposit => deposit > 0)
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -91,7 +115,39 @@ const createUsernames = function (accs) {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
+//Event Handlers
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and Message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    //Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    //Display movements
+    displayMovments(currentAccount.movements);
+
+    //Display balance
+    calcDisplayBalance(currentAccount.movements);
+
+    //Display summary
+    calcDisplaySummary(currentAccount);
+  }
+});
+
+//Transfer Money
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -148,3 +204,13 @@ console.log(accounts);
 //Filter - filters the original array from a certian condition
 
 //Reduce - reduces the array to a single value
+
+//Find Method
+// Retrieve on element of an array based on a condition
+//Needs a callback function that returns a boolean
+// const firstWithdrawal = account1.movements.find(mov => mov < 0);
+// console.log(account1.movements);
+// console.log(firstWithdrawal);
+
+// const account = accounts.find(acc => (acc.owner = 'Jessica Davis'));
+// console.log(account1);
