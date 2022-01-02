@@ -1,8 +1,7 @@
 'use strict';
 
-/*
-///////////////////////////////////////
-// Activating Strict Mode
+//////////////////////////////////////////////////////////////////////
+///////////////////// Activating Strict Mode /////////////////////////
 let hasDriversLicense = false;
 const passTest = true;
 
@@ -13,8 +12,8 @@ if (hasDriversLicense) console.log('I can drive :D');
 // const private = 534;
 
 
-///////////////////////////////////////
-// Functions
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////// Functions ///////////////////////////////////
 function logger() {
   console.log('My name is Jonas');
 }
@@ -38,8 +37,8 @@ console.log(appleOrangeJuice);
 const num = Number('23');
 
 
-///////////////////////////////////////
-// Function Declarations vs. Expressions
+///////////////////////////////////////////////////////////////////////////
+///////////////// Function Declarations vs. Expressions ///////////////////
 
 // Function declaration
 function calcAge1(birthYeah) {
@@ -56,8 +55,8 @@ const age2 = calcAge2(1991);
 console.log(age1, age2);
 
 
-///////////////////////////////////////
-// Arrow functions
+//////////////////////////////////////////////////////////////////////////
+//////////////////////// Arrow functions /////////////////////////////////
 
 const calcAge3 = birthYeah => 2037 - birthYeah;
 const age3 = calcAge3(1991);
@@ -73,8 +72,8 @@ const yearsUntilRetirement = (birthYeah, firstName) => {
 console.log(yearsUntilRetirement(1991, 'Jonas')); console.log(yearsUntilRetirement(1980, 'Bob'));
 
 
-///////////////////////////////////////
-// Functions Calling Other Functions
+////////////////////////////////////////////////////////////////////
+///////////////////// Functions Calling Other Functions/////////////
 function cutFruitPieces(fruit) {
   return fruit * 4;
 }
@@ -89,8 +88,8 @@ function fruitProcessor(apples, oranges) {
 console.log(fruitProcessor(2, 3));
 
 
-///////////////////////////////////////
-// Reviewing Functions
+////////////////////////////////////////////////////////////////////////////
+///////////////////////// Reviewing Functions //////////////////////////////
 const calcAge = function (birthYeah) {
   return 2037 - birthYeah;
 }
@@ -112,60 +111,8 @@ console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
 */
 
-///////////////////////////////////////
-// Coding Challenge #1
-
-/*
-Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
-Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team).
-A team ONLY wins if it has at least DOUBLE the average score of the other team. Otherwise, no team wins!
-
-1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
-2. Use the function to calculate the average for both teams
-3. Create a function 'checkWinner' that takes the average score of each team as parameters ('avgDolhins' and 'avgKoalas'), and then logs the winner to the console, together with the victory points, according to the rule above. Example: "Koalas win (30 vs. 13)".
-4. Use the 'checkWinner' function to determine the winner for both DATA 1 and DATA 2.
-5. Ignore draws this time.
-
-TEST DATA 1: Dolphins score 44, 23 and 71. Koalas score 65, 54 and 49
-TEST DATA 2: Dolphins score 85, 54 and 41. Koalas score 23, 34 and 27
-
-HINT: To calculate average of 3 values, add them all together and divide by 3
-HINT: To check if number A is at least double number B, check for A >= 2 * B. Apply this to the team's average scores 😉
-
-GOOD LUCK 😀
-*/
-
-/*
-const calcAverage = (a, b, c) => (a + b + c) / 3;
-console.log(calcAverage(3, 4, 5));
-
-// Test 1
-let scoreDolphins = calcAverage(44, 23, 71);
-let scoreKoalas = calcAverage(65, 54, 49);
-console.log(scoreDolphins, scoreKoalas);
-
-const checkWinner = function (avgDolphins, avgKoalas) {
-  if (avgDolphins >= 2 * avgKoalas) {
-    console.log(`Dolphins win 🏆 (${avgDolphins} vs. ${avgKoalas})`);
-  } else if (avgKoalas >= 2 * avgDolphins) {
-    console.log(`Koalas win 🏆 (${avgKoalas} vs. ${avgDolphins})`);
-  } else {
-    console.log('No team wins...');
-  }
-}
-checkWinner(scoreDolphins, scoreKoalas);
-
-checkWinner(576, 111);
-
-// Test 2
-scoreDolphins = calcAverage(85, 54, 41);
-scoreKoalas = calcAverage(23, 34, 27);
-console.log(scoreDolphins, scoreKoalas);
-checkWinner(scoreDolphins, scoreKoalas);
-
-
-///////////////////////////////////////
-// Introduction to Arrays
+///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////Arrays////////////////////////////////////////
 const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
@@ -183,14 +130,14 @@ console.log(friends[friends.length - 1]);
 
 friends[2] = 'Jay';
 console.log(friends);
-// friends = ['Bob', 'Alice'] Cannot do if the array is declared as a const
+friends = ['Bob', 'Alice'] //Cannot do if the array is declared as a const
 
 const firstName = 'Jonas';
 const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends];
 console.log(jonas);
 console.log(jonas.length);
 
-// Exercise
+Exercise
 const calcAge = function (birthYeah) {
   return 2037 - birthYeah;
 }
@@ -205,8 +152,8 @@ const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length -
 console.log(ages);
 
 
-///////////////////////////////////////
-// Basic Array Operations (Methods)
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////Basic Array Operations (Methods)///////////////////////
 const friends = ['Michael', 'Steven', 'Peter'];
 
 // Add elements
@@ -237,41 +184,177 @@ console.log(friends.includes(23));
 if (friends.includes('Steven')) {
   console.log('You have a friend called Steven');
 }
-*/
 
-///////////////////////////////////////
-// Coding Challenge #2
 
-/*
-Steven is still building his tip calculator, using the same rules as before: Tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
+//////////////////////////////////////////////////////////////////////////////
+/////////////////// Advanced Array Operations (Methods) ////////////////////
 
-1. Write a function 'calcTip' that takes any bill value as an input and returns the corresponding tip, calculated based on the rules above (you can check out the code from first tip calculator challenge if you need to). Use the function type you like the most. Test the function using a bill value of 100.
-2. And now let's use arrays! So create an array 'bills' containing the test data below.
-3. Create an array 'tips' containing the tip value for each bill, calculated from the function you created before.
-4. BONUS: Create an array 'total' containing the total values, so the bill + tip.
+let arr = ['a', 'b', 'c', 'd', 'e'];
 
-TEST DATA: 125, 555 and 44
+Slice
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
 
-HINT: Remember that an array needs a value in each position, and that value can actually be the returned value of a function! So you can just call a function as array values (so don't store the tip values in separate variables first, but right in the new array) 😉
+Splice
+console.log(arr.splice(2));
+console.log(arr.reverse());
 
-GOOD LUCK 😀
-*/
+At Method
+console.log(arr.at(0));
+console.log(arr.at(-1));
 
-/*
-const calcTip = function (bill) {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
 }
-// const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+The value, index and array must be accessed in this order
+movements.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
 
-const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
 
-console.log(bills, tips, totals);
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+Map - can be used to loop an array
+This will create a brand new array based on the original array
+For each iteration it will apply a callback function
+
+Filter - filters the original array from a certian condition
+
+Reduce - reduces the array to a single value
+
+Find Method
+Retrieve on element of an array based on a condition
+Needs a callback function that returns a boolean
+const firstWithdrawal = account1.movements.find(mov => mov < 0);
+console.log(account1.movements);
+console.log(firstWithdrawal);
+
+const account = accounts.find(acc => (acc.owner = 'Jessica Davis'));
+console.log(account1);
+
+findindex method
+Returns the index of the condition and not the value
+
+Some Method: if any of the elements satisfies the condition set array.some(param => condition)
+
+Every Method - if every element satisfies the conditions set
+array.every(mov => condition)
+
+Seperate callback
+const deposit = mov => mov > 0;
+array.some(deposit);
+
+Flat Method - No callback function
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+The () will determine how deep to flatten the array: Default is 1
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arr.flat(2));
+
+const accountMovements = accounts.map(acc => acc.movements);
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+
+FlatMap Method - combines the map and the flat methods
+Cannot change how deep the method goes. Only 1 level.
+const overallBalance = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+Sorting Arrays - sort will mutate the original array
+The sort method will also convert to string then sort
+
+Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+Numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+Acending
+console.log(
+  movements.sort((a, b) => {
+    if (a > b) return 1;
+    if (a < b) return -1;
+  })
+);
+
+Acending Refactored
+movements.sort((a, b) => a - b);
+console.log(movements);
+Decending
+console.log(
+  movements.sort((a, b) => {
+    if (a > b) return -1;
+    if (a < b) return 1;
+  })
+);
+
+Decending Refactored
+movements.sort((a, b) => b - a);
+console.log(movements);
+
+Progamatically create and fill arrays
+array.fill()
+Array.from(length: [#], () => condition)
+
+Summary
+Mutate the original array
+Add to the original array: .push() and .unshift()
+Remove from the original array: .pop(), .shift() and .splice()
+Others: .reverse(), .sort() and .fill()
+
+A New Array:
+Computed from original: .map()
+Filter using condition: filter()
+Portion of the original: .slice()
+Adding original to another: .concat()
+Flattening the original: flat() and flatMap()
+
+An Array Index
+Based on value: .indexOf()
+Based on test condition: .findIndex()
+
+An Array Element
+Based on test condition: .find()
+
+Know if an Array includes
+Based on value: .includes()
+Based on test condition: .some() and .every()
+
+A new string
+Based on seperator string: .join()
+
+To transform to value
+Based on accumulator: .reduce()
+
+To just loop the array
+Based on callback: .forEach()
 
 
-///////////////////////////////////////
-// Introduction to Objects
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////Introduction to Objects//////////////////////////
 const jonasArray = [
   'Jonas',
   'Schmedtmann',
@@ -307,7 +390,7 @@ const nameKey = 'Name';
 console.log(jonas['first' + nameKey]);
 console.log(jonas['last' + nameKey]);
 
-// console.log(jonas.'last' + nameKey)
+console.log(jonas.'last' + nameKey)
 
 const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends');
 
@@ -337,14 +420,14 @@ const jonas = {
   friends: ['Michael', 'Peter', 'Steven'],
   hasDriversLicense: true,
 
-  // calcAge: function (birthYeah) {
-  //   return 2037 - birthYeah;
-  // }
+  calcAge: function (birthYeah) {
+    return 2037 - birthYeah;
+  }
 
-  // calcAge: function () {
-  //   // console.log(this);
-  //   return 2037 - this.birthYeah;
-  // }
+  calcAge: function () {
+    // console.log(this);
+    return 2037 - this.birthYeah;
+  }
 
   calcAge: function () {
     this.age = 2037 - this.birthYeah;
@@ -362,76 +445,27 @@ console.log(jonas.age);
 console.log(jonas.age);
 console.log(jonas.age);
 
-// Challenge
-// "Jonas is a 46-year old teacher, and he has a driver's license"
+Challenge
+"Jonas is a 46-year old teacher, and he has a driver's license"
 console.log(jonas.getSummary());
-*/
 
-///////////////////////////////////////
-// Coding Challenge #3
-
-/*
-Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
-
-1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
-2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
-3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-
-TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
-
-GOOD LUCK 😀
-*/
-
-/*
-const mark = {
-  fullName: 'Mark Miller',
-  mass: 78,
-  height: 1.69,
-  calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  }
-};
-
-const john = {
-  fullName: 'John Smith',
-  mass: 92,
-  height: 1.95,
-  calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  }
-};
-
-mark.calcBMI();
-john.calcBMI();
-
-console.log(mark.bmi, john.bmi);
-
-// "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-
-if (mark.bmi > john.bmi) {
-  console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`)
-} else if (john.bmi > mark.bmi) {
-  console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
-}
 
 
 ///////////////////////////////////////
 // Iteration: The for Loop
 
-// console.log('Lifting weights repetition 1 🏋️‍♀️');
-// console.log('Lifting weights repetition 2 🏋️‍♀️');
-// console.log('Lifting weights repetition 3 🏋️‍♀️');
-// console.log('Lifting weights repetition 4 🏋️‍♀️');
-// console.log('Lifting weights repetition 5 🏋️‍♀️');
-// console.log('Lifting weights repetition 6 🏋️‍♀️');
-// console.log('Lifting weights repetition 7 🏋️‍♀️');
-// console.log('Lifting weights repetition 8 🏋️‍♀️');
-// console.log('Lifting weights repetition 9 🏋️‍♀️');
-// console.log('Lifting weights repetition 10 🏋️‍♀️');
+console.log('Lifting weights repetition 1 🏋️‍♀️');
+console.log('Lifting weights repetition 2 🏋️‍♀️');
+console.log('Lifting weights repetition 3 🏋️‍♀️');
+console.log('Lifting weights repetition 4 🏋️‍♀️');
+console.log('Lifting weights repetition 5 🏋️‍♀️');
+console.log('Lifting weights repetition 6 🏋️‍♀️');
+console.log('Lifting weights repetition 7 🏋️‍♀️');
+console.log('Lifting weights repetition 8 🏋️‍♀️');
+console.log('Lifting weights repetition 9 🏋️‍♀️');
+console.log('Lifting weights repetition 10 🏋️‍♀️');
 
-// for loop keeps running while condition is TRUE
+for loop keeps running while condition is TRUE
 for (let rep = 1; rep <= 30; rep++) {
   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
@@ -449,18 +483,18 @@ const jonas = [
 ];
 const types = [];
 
-// console.log(jonas[0])
-// console.log(jonas[1])
-// ...
-// console.log(jonas[4])
-// jonas[5] does NOT exist
+console.log(jonas[0])
+console.log(jonas[1])
+...
+console.log(jonas[4])
+jonas[5] does NOT exist
 
 for (let i = 0; i < jonas.length; i++) {
-  // Reading from jonas array
+  Reading from jonas array
   console.log(jonas[i], typeof jonas[i]);
 
-  // Filling types array
-  // types[i] = typeof jonas[i];
+  Filling types array
+  types[i] = typeof jonas[i];
   types.push(typeof jonas[i]);
 }
 
@@ -474,7 +508,7 @@ for (let i = 0; i < years.length; i++) {
 }
 console.log(ages);
 
-// continue and break
+continue and break
 console.log('--- ONLY STRINGS ---')
 for (let i = 0; i < jonas.length; i++) {
   if (typeof jonas[i] !== 'string') continue; IF THE TYPE OF THE CURRENT ELEMENT IS NOT A STRING THEN CONTINUE WITH THE LOOP AND SKIP THE OTHER TYPES
@@ -536,54 +570,4 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log('Loop is about to end...');
 }
-*/
 
-///////////////////////////////////////
-// Coding Challenge #4
-
-/*
-Let's improve Steven's tip calculator even more, this time using loops!
-
-1. Create an array 'bills' containing all 10 test bill values
-2. Create empty arrays for the tips and the totals ('tips' and 'totals')
-3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
-
-TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
-
-HINT: Call calcTip in the loop and use the push method to add values to the tips and totals arrays 😉
-
-4. BONUS: Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array. This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it:
-  4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
-  4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
-  4.3. Call the function with the 'totals' array
-
-GOOD LUCK 😀
-*/
-
-/*
-const calcTip = function (bill) {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-}
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-const tips = [];
-const totals = [];
-
-for (let i = 0; i < bills.length; i++) {
-  const tip = calcTip(bills[i]);
-  tips.push(tip);
-  totals.push(tip + bills[i]);
-}
-console.log(bills, tips, totals);
-
-const calcAverage = function (arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    // sum = sum + arr[i];
-    sum += arr[i];
-  }
-  return sum / arr.length;
-}
-console.log(calcAverage([2, 3, 7]));
-console.log(calcAverage(totals));
-console.log(calcAverage(tips));
-*/
