@@ -45,7 +45,8 @@ const restaurant = {
   //ES6 Enhanced object literals
   openingHours,
 };
-
+console.log(restaurant
+    .openingHours.mon?.open);
 // Array Destructuring
 // Instead of this
 // const arr = [2, 3, 4];
@@ -213,8 +214,8 @@ const restaurant = {
 //Logical Operators
 //Use any data type, return any data type and short-circuting
 
-//OR operand will short circut when the first operand is a truthy value
-//If the first operand is truthy, the other operand will not be looked at
+// OR operand will short circut when the first operand is a truthy value
+// If the first operand is truthy, the other operand will not be looked at
 // console.log(3 || 'Jonas'); //Will come back as 3
 // console.log('' || 'Jonas'); //Will come back as Jonas
 // console.log(true || 0); //Will come back as true
@@ -274,22 +275,22 @@ const restaurant = {
 //   obj1,
 // }
 
-//Old way of creating methods in object literals
-// const obj1 = {
-//   functionName: function(){
-//     return 'Something'
-//   },
-// }
+// Old way of creating methods in object literals
+const obj1 = {
+  functionName: function(){
+    return 'Something'
+  },
+}
 
-//New way in ES6
-// const obj2 = {
-//   functionName(){
-//     return 'Something'
-//   },
-// }
+// New way in ES6
+const obj2 = {
+  functionName(){
+    return 'Something'
+  },
+}
 
-//Optional Chaining
-// console.log(restaurant.openingHours.mon.open);
+// Optional Chaining
+console.log(restaurant.openingHours.mon.open);
 
 //Sets
 //Sets contains not indexes or retrieving values
