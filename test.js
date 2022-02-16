@@ -110,3 +110,19 @@
 // 4. Thinking about getFizzBuzz(startingNum), let's console log the return value of this function
 //      What if getFizzBuzz doesn't return a value (VOID)?
 //      How do you want to handle that?
+
+
+function disemvowel(str) {
+    let correctStr = '';
+    const vowelArray = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+    vowelArray.forEach(vowel => {
+        for (let i = 0; i < str.length; i++) {
+            if (vowel !== str[i]) {
+                correctStr += str[i]
+            }
+        }
+    })
+    return correctStr
+}
+
+console.log(disemvowel("This website is for losers LOL!"));
